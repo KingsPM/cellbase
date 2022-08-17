@@ -129,7 +129,7 @@
 			"host": "ftp://ftp.ebi.ac.uk/pub/databases/gwas/releases/2016/09/28/gwas-catalog-associations.tsv"
 		},
 		"hpo": {
-			"host": "http://compbio.charite.de/hudson/job/hpo.annotations.monthly/lastStableBuild/artifact/annotation/ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt"
+			"host": "https://github.com/moonso/phizz/blob/master/phizz/resources/ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt.gz"
 		},
 		"disgenet": {
 			"host": "http://www.disgenet.org/ds/DisGeNET/results/all_gene_disease_associations.tsv.gz"

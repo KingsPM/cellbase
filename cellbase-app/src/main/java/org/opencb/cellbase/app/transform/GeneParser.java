@@ -104,7 +104,7 @@ public class GeneParser extends CellBaseParser {
                 geneDirectoryPath.resolve("mirna.txt"),
                 geneDirectoryPath.getParent().getParent().resolve("common/expression/allgenes_updown_in_organism_part.tab.gz"),
                 geneDirectoryPath.resolve("geneDrug/dgidb.tsv"),
-                geneDirectoryPath.resolve("ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt"),
+                geneDirectoryPath.resolve("ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt.gz"),
                 geneDirectoryPath.resolve("all_gene_disease_associations.txt.gz"),
                 genomeSequenceFastaFile, species, flexibleGTFParsing, serializer);
         getGtfFileFromGeneDirectoryPath(geneDirectoryPath);

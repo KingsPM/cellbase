@@ -47,7 +47,7 @@ public class BuildCommandExecutor extends CommandExecutor {
     public static final String GWAS_INPUT_FILE_NAME = "gwas_catalog.tsv";
     public static final String CADD_INPUT_FILE_NAME = "whole_genome_SNVs.tsv.gz";
     public static final String DISGENET_INPUT_FILE_NAME = "all_gene_disease_associations.txt.gz";
-    public static final String HPO_INPUT_FILE_NAME = "ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt";
+    public static final String HPO_INPUT_FILE_NAME = "ALL_SOURCES_ALL_FREQUENCIES_diseases_to_genes_to_phenotypes.txt.gz";
     public static final String DBSNP_INPUT_FILE_NAME = "All.vcf.gz";
 
     private CliOptionsParser.BuildCommandOptions buildCommandOptions;
