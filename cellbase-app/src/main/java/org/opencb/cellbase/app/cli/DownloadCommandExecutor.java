@@ -225,7 +225,7 @@ public class DownloadCommandExecutor extends CommandExecutor {
                         break;
                     case EtlCommons.VARIATION_DATA:
                         if (speciesHasInfoToDownload(sp, "variation")) {
-                            downloadVariation(sp, spShortName, spFolder, ensemblHostUrl);
+                            downloadVariation(sp, spShortName, assembly.getName(), spFolder, ensemblHostUrl);
                         }
                         break;
                     case EtlCommons.VARIATION_FUNCTIONAL_SCORE_DATA:
@@ -598,13 +598,19 @@ public class DownloadCommandExecutor extends CommandExecutor {
     }
 
 
-    private void downloadVariation(Species sp, String shortName, Path spFolder, String host)
+    private void downloadVariation(Species sp, String shortName, String assembly, Path spFolder, String host)
             throws IOException, InterruptedException {
         logger.info("Downloading variation information ...");
         Path variationFolder = spFolder.resolve("variation");
         makeDir(variationFolder);
 
-        String variationUrl = host + "/" + ensemblRelease;
+        String variationUrl;
+        if (assembly.equalsIgnoreCase("GRCh37")) {
+            variationUrl = host + "/" + assembly.toLowerCase() + "/" + ensemblRelease;
+        } else {
+            variationUrl = host + "/" + ensemblRelease;
+        }
+
         if (!configuration.getSpecies().getVertebrates().contains(sp)) {
             variationUrl = host + "/" + ensemblRelease + "/" + getPhylo(sp);
         }
@@ -612,6 +618,9 @@ public class DownloadCommandExecutor extends CommandExecutor {
         List<String> downloadedUrls = new ArrayList<>(VARIATION_FILES.length);
 
         for (String variationFile : VARIATION_FILES) {
+            if (assembly.equalsIgnoreCase("GRCh38")) {
+                variationFile = variationFile + ".bz2";
+            }
             Path outputFile = variationFolder.resolve(variationFile);
             downloadFile(variationUrl + "/" + variationFile, outputFile.toString());
             downloadedUrls.add(variationUrl + "/" + variationFile);
